@@ -11,14 +11,17 @@ export default registerAs('typeorm', () => ({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
 
-  ssl:
-    process.env.NODE_ENV !== 'development'
-      ? { rejectUnauthorized: false }
-      : false,
+  ssl: isProduction ? { rejectUnauthorized: false } : false,
+
+  extra: isProduction
+    ? {
+        ssl: { rejectUnauthorized: false },
+      }
+    : {},
 
   autoLoadEntities: true,
-  synchronize: process.env.NODE_ENV === 'development',
-  logging: process.env.NODE_ENV === 'development',
+  synchronize: !isProduction,
+  logging: !isProduction,
 }));
 
 export const AppDataSource = new DataSource({
@@ -33,4 +36,9 @@ export const AppDataSource = new DataSource({
   migrations: ['dist/migrations/*.js'],
 
   ssl: isProduction ? { rejectUnauthorized: false } : false,
+  extra: isProduction
+    ? {
+        ssl: { rejectUnauthorized: false },
+      }
+    : {},
 });

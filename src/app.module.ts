@@ -26,7 +26,6 @@ import { FileUploadModule } from './file-upload/file-upload.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env.development',
       load: [typeOrmConfig],
     }),
 
