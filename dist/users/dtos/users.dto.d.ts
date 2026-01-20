@@ -11,10 +11,10 @@ export declare class CreateUserDto {
     isTester: boolean;
     isDeleted: boolean;
 }
-declare const UpdateUserDto_base: import("@nestjs/common").Type<Partial<Omit<CreateUserDto, "name" | "email" | "password" | "confirmPassword">>>;
+declare const UpdateUserDto_base: import("@nestjs/common").Type<Partial<Omit<CreateUserDto, "password" | "name" | "email" | "confirmPassword">>>;
 export declare class UpdateUserDto extends UpdateUserDto_base {
 }
-declare const LoginUserDto_base: import("@nestjs/common").Type<Pick<CreateUserDto, "email" | "password">>;
+declare const LoginUserDto_base: import("@nestjs/common").Type<Pick<CreateUserDto, "password" | "email">>;
 export declare class LoginUserDto extends LoginUserDto_base {
     email: string;
     password: string;

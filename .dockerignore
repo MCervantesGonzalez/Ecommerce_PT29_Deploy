@@ -1,2 +1,8 @@
 node_modules
 dist
+.env
+.env.development
+.git
+.github
+Dockerfile
+README.md

@@ -1,26 +1,34 @@
 import { registerAs } from '@nestjs/config';
-import { environment } from '../config/environment';
+import { DataSource } from 'typeorm';
 
-const config = {
+const isProduction = process.env.NODE_ENV === 'production';
+
+export default registerAs('typeorm', () => ({
   type: 'postgres',
-  database: environment.DB_NAME,
-  host: environment.DB_HOST, //'postgresdb',
-  port: Number(environment.DB_PORT),
-  username: environment.DB_USERNAME,
-  password: environment.DB_PASSWORD,
-  entities: ['dist/**/*.entity{.ts,.js}'],
-  migrations: ['dist/migrations/*{.ts,.js}'],
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+
   autoLoadEntities: true,
-  logging: false,
-  synchronize: true,
-  dropSchema: false,
-};
 
-// Registramos objeto de configuración con el nombre "typeorm":
-export const typeOrmConfig = registerAs('typeorm', () => config);
+  synchronize: !isProduction,
+  logging: !isProduction,
 
-// La línea siguiente es necesaria para poder correr las migraciones
-// desde la terminal con el comando: npm run typeorm migration:run
+  ssl: isProduction ? { rejectUnauthorized: false } : false,
+}));
 
-import { DataSource, DataSourceOptions } from 'typeorm';
-export const connectionSource = new DataSource(config as DataSourceOptions);
+export const AppDataSource = new DataSource({
+  type: 'postgres',
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+
+  entities: ['dist/**/*.entity.js'],
+  migrations: ['dist/migrations/*.js'],
+
+  ssl: isProduction ? { rejectUnauthorized: false } : false,
+});

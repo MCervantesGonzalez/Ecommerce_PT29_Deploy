@@ -1,29 +1,24 @@
-export declare const typeOrmConfig: (() => {
+import { DataSource } from 'typeorm';
+declare const _default: (() => {
     type: string;
-    database: string | undefined;
-    host: string;
+    host: string | undefined;
     port: number;
     username: string | undefined;
     password: string | undefined;
-    entities: string[];
-    migrations: string[];
+    database: string | undefined;
     autoLoadEntities: boolean;
-    logging: boolean;
     synchronize: boolean;
-    dropSchema: boolean;
+    logging: boolean;
 }) & import("@nestjs/config").ConfigFactoryKeyHost<{
     type: string;
-    database: string | undefined;
-    host: string;
+    host: string | undefined;
     port: number;
     username: string | undefined;
     password: string | undefined;
-    entities: string[];
-    migrations: string[];
+    database: string | undefined;
     autoLoadEntities: boolean;
-    logging: boolean;
     synchronize: boolean;
-    dropSchema: boolean;
+    logging: boolean;
 }>;
-import { DataSource } from 'typeorm';
-export declare const connectionSource: DataSource;
+export default _default;
+export declare const AppDataSource: DataSource;

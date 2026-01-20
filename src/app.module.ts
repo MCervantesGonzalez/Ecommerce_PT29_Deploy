@@ -10,7 +10,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { typeOrmConfig } from './config/typeorm';
+import typeOrmConfig from './config/typeorm';
 import { environment } from './config/environment';
 import { loggerGlobal } from './middlewares/logger.middleware';
 import { AuthModule } from './auth/auth.module';
@@ -26,12 +26,9 @@ import { FileUploadModule } from './file-upload/file-upload.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env.development',
-    }),
-    ConfigModule.forRoot({
-      isGlobal: true,
       load: [typeOrmConfig],
     }),
+
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (configService: ConfigService) =>
@@ -66,8 +63,11 @@ export class AppModule implements NestModule, OnApplicationBootstrap {
   ) {}
 
   async onApplicationBootstrap() {
+    if (process.env.NODE_ENV !== 'development') return;
+
     await this.categoriesService.addCategories();
     this.logger.log('Se cargaron las categorias');
+
     await this.productsService.addProducts();
     this.logger.log('Se cargaron los productos');
   }

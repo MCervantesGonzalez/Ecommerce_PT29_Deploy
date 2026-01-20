@@ -1,23 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.connectionSource = exports.typeOrmConfig = void 0;
+exports.AppDataSource = void 0;
 const config_1 = require("@nestjs/config");
-const environment_1 = require("../config/environment");
-const config = {
-    type: 'postgres',
-    database: environment_1.environment.DB_NAME,
-    host: environment_1.environment.DB_HOST,
-    port: Number(environment_1.environment.DB_PORT),
-    username: environment_1.environment.DB_USERNAME,
-    password: environment_1.environment.DB_PASSWORD,
-    entities: ['dist/**/*.entity{.ts,.js}'],
-    migrations: ['dist/migrations/*{.ts,.js}'],
-    autoLoadEntities: true,
-    logging: false,
-    synchronize: true,
-    dropSchema: false,
-};
-exports.typeOrmConfig = (0, config_1.registerAs)('typeorm', () => config);
 const typeorm_1 = require("typeorm");
-exports.connectionSource = new typeorm_1.DataSource(config);
+exports.default = (0, config_1.registerAs)('typeorm', () => ({
+    type: 'postgres',
+    host: process.env.DB_HOST,
+    port: Number(process.env.DB_PORT),
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    autoLoadEntities: true,
+    synchronize: process.env.NODE_ENV === 'development',
+    logging: process.env.NODE_ENV === 'development',
+}));
+exports.AppDataSource = new typeorm_1.DataSource({
+    type: 'postgres',
+    host: process.env.DB_HOST,
+    port: Number(process.env.DB_PORT),
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    entities: ['dist/**/*.entity.js'],
+    migrations: ['dist/migrations/*.js'],
+});
 //# sourceMappingURL=typeorm.js.map

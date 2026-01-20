@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var AppModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
@@ -17,7 +20,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const config_1 = require("@nestjs/config");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const typeorm_2 = require("./config/typeorm");
+const typeorm_2 = __importDefault(require("./config/typeorm"));
 const environment_1 = require("./config/environment");
 const logger_middleware_1 = require("./middlewares/logger.middleware");
 const auth_module_1 = require("./auth/auth.module");
@@ -40,6 +43,8 @@ let AppModule = AppModule_1 = class AppModule {
         this.productsService = productsService;
     }
     async onApplicationBootstrap() {
+        if (process.env.NODE_ENV !== 'development')
+            return;
         await this.categoriesService.addCategories();
         this.logger.log('Se cargaron las categorias');
         await this.productsService.addProducts();
@@ -52,11 +57,7 @@ exports.AppModule = AppModule = AppModule_1 = __decorate([
         imports: [
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
-                envFilePath: '.env.development',
-            }),
-            config_1.ConfigModule.forRoot({
-                isGlobal: true,
-                load: [typeorm_2.typeOrmConfig],
+                load: [typeorm_2.default],
             }),
             typeorm_1.TypeOrmModule.forRootAsync({
                 inject: [config_1.ConfigService],
