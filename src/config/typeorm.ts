@@ -12,7 +12,7 @@ export default registerAs('typeorm', () =>
           rejectUnauthorized: false,
         },
         autoLoadEntities: true,
-        synchronize: false,
+        synchronize: true,
         logging: false,
       }
     : {
