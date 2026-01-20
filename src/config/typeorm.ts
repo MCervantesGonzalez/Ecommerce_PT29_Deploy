@@ -11,12 +11,14 @@ export default registerAs('typeorm', () => ({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
 
+  ssl:
+    process.env.NODE_ENV !== 'development'
+      ? { rejectUnauthorized: false }
+      : false,
+
   autoLoadEntities: true,
-
-  synchronize: !isProduction,
-  logging: !isProduction,
-
-  ssl: isProduction ? { rejectUnauthorized: false } : false,
+  synchronize: process.env.NODE_ENV === 'development',
+  logging: process.env.NODE_ENV === 'development',
 }));
 
 export const AppDataSource = new DataSource({
