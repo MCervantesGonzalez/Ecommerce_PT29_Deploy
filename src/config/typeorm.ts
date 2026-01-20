@@ -13,7 +13,7 @@ export default registerAs('typeorm', () =>
         },
         autoLoadEntities: true,
         synchronize: true,
-        logging: false,
+        logging: true,
       }
     : {
         type: 'postgres',
