@@ -1,0 +1,170 @@
+[
+  {
+    "name": "Iphone 15",
+    "description": "Smartphone with A16 Bionic chip, high-quality camera system and iOS ecosystem support, focused on performance and long-term updates",
+    "price": 199.99,
+    "stock": 12,
+    "category": "smartphone"
+  },
+  {
+    "name": "Samsung Galaxy S23",
+    "description": "Flagship Android smartphone with AMOLED display, Snapdragon processor and versatile camera system",
+    "price": 150.0,
+    "stock": 12,
+    "category": "smartphone"
+  },
+  {
+    "name": "Motorola Edge 40",
+    "description": "Mid-range smartphone with OLED display, fast charging and clean Android experience",
+    "price": 179.89,
+    "stock": 12,
+    "category": "smartphone"
+  },
+  {
+    "name": "Samsung Odyssey G9",
+    "description": "49-inch ultra-wide curved gaming monitor with high refresh rate and immersive aspect ratio",
+    "price": 299.99,
+    "stock": 12,
+    "category": "monitor"
+  },
+  {
+    "name": "LG UltraGear",
+    "description": "Gaming monitor with high refresh rate, low response time and IPS panel for smooth gameplay",
+    "price": 199.99,
+    "stock": 12,
+    "category": "monitor"
+  },
+  {
+    "name": "Acer Predator",
+    "description": "High-performance gaming monitor designed for competitive play and fast response times",
+    "price": 150.0,
+    "stock": 12,
+    "category": "monitor"
+  },
+  {
+    "name": "Razer BlackWidow V3",
+    "description": "Mechanical gaming keyboard with Razer switches and customizable RGB lighting",
+    "price": 99.99,
+    "stock": 12,
+    "category": "keyboard"
+  },
+  {
+    "name": "Corsair K70",
+    "description": "Premium mechanical keyboard with aluminum frame, Cherry MX switches and RGB backlighting",
+    "price": 79.99,
+    "stock": 12,
+    "category": "keyboard"
+  },
+  {
+    "name": "Logitech G Pro",
+    "description": "Compact mechanical keyboard designed for esports and professional gaming setups",
+    "price": 59.99,
+    "stock": 12,
+    "category": "keyboard"
+  },
+  {
+    "name": "Razer Viper",
+    "description": "Lightweight gaming mouse with high-precision optical sensor and ambidextrous design",
+    "price": 49.99,
+    "stock": 12,
+    "category": "mouse"
+  },
+  {
+    "name": "Logitech G502 Pro",
+    "description": "Ergonomic gaming mouse with adjustable weights and high DPI sensor for precision control",
+    "price": 39.99,
+    "stock": 12,
+    "category": "mouse"
+  },
+  {
+    "name": "SteelSeries Rival 3",
+    "description": "Affordable gaming mouse with durable switches and accurate optical tracking",
+    "price": 29.99,
+    "stock": 12,
+    "category": "mouse"
+  },
+  {
+    "name": "Intel Core i7-13700K",
+    "description": "High performance processor for gaming and productivity",
+    "price": 389.99,
+    "stock": 8,
+    "category": "cpu"
+  },
+  {
+    "name": "AMD Ryzen 5 7600X",
+    "description": "Powerful and efficient gaming processor",
+    "price": 299.99,
+    "stock": 10,
+    "category": "cpu"
+  },
+  {
+    "name": "NVIDIA GeForce RTX 4070",
+    "description": "High-end graphics card for gaming and ray tracing",
+    "price": 599.99,
+    "stock": 6,
+    "category": "gpu"
+  },
+  {
+    "name": "AMD Radeon RX 7800 XT",
+    "description": "High performance graphics card for 1440p gaming",
+    "price": 549.99,
+    "stock": 5,
+    "category": "gpu"
+  },
+  {
+    "name": "Corsair Vengeance 32GB DDR5",
+    "description": "High speed DDR5 memory kit for gaming PCs",
+    "price": 159.99,
+    "stock": 15,
+    "category": "ram"
+  },
+  {
+    "name": "G.Skill Trident Z RGB 16GB DDR4",
+    "description": "Reliable DDR4 RAM with RGB lighting",
+    "price": 89.99,
+    "stock": 20,
+    "category": "ram"
+  },
+  {
+    "name": "Samsung 980 Pro 1TB",
+    "description": "High speed NVMe SSD storage",
+    "price": 129.99,
+    "stock": 14,
+    "category": "storage"
+  },
+  {
+    "name": "Western Digital Blue 2TB",
+    "description": "Reliable HDD for mass storage",
+    "price": 69.99,
+    "stock": 18,
+    "category": "storage"
+  },
+  {
+    "name": "ASUS ROG Strix Z790-E",
+    "description": "High-end motherboard for Intel processors",
+    "price": 349.99,
+    "stock": 7,
+    "category": "motherboard"
+  },
+  {
+    "name": "MSI B650 Tomahawk",
+    "description": "Solid motherboard for AMD Ryzen processors",
+    "price": 229.99,
+    "stock": 9,
+    "category": "motherboard"
+  },
+  {
+    "name": "Corsair RM850x",
+    "description": "850W fully modular power supply",
+    "price": 139.99,
+    "stock": 11,
+    "category": "power-supply"
+  },
+  {
+    "name": "NZXT H510",
+    "description": "Minimalist mid-tower PC case",
+    "price": 89.99,
+    "stock": 13,
+    "category": "case"
+  }
+]
