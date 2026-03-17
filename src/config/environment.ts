@@ -1,7 +1,11 @@
 //SE REFACTORIZO Y SE UTILIZO EL MODULO DE CONFIGURACION DE NESTJS
+// Solo carga el archivo .env.development si existe (desarrollo local)
+// En producción Render inyecta las variables directamente
 
 import * as dotenv from 'dotenv';
-dotenv.config({ path: '.env.development' });
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: '.env.development' });
+}
 
 export const environment = {
   HOST: process.env.HOST || 'localhost',
