@@ -12,8 +12,8 @@ export default registerAs('typeorm', () =>
           rejectUnauthorized: false,
         },
         autoLoadEntities: true,
-        synchronize: false,
-        logging: false,
+        synchronize: true,
+        logging: true,
       }
     : {
         type: 'postgres',
